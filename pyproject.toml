@@ -3,17 +3,23 @@ name = "call-stats"
 version = "0.1.0"
 description = "Call STATS"
 authors = ["ikievite <ikievite@gmail.com>"]
+packages = [
+  { include = "call-stats" },
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.8"
+keyring = "^21.7.0"
+requests = "^2.25.1"
 
 [tool.poetry.dev-dependencies]
 wemake-python-styleguide = "^0.14.1"
 pytest = "^6.2.1"
 
+[tool.poetry.scripts]
+call-stats = "call-stats.scripts.call-stats:main"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
 
-[tool.poetry.scripts]
-gendiff = "call-stats.scripts.call-stats:main"
