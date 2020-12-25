@@ -1,8 +1,8 @@
 install:
 	poetry install
 
-call-stats:
-	poetry run call-stats
+call_stats:
+	poetry run call_stats
 
 lint:
 	poetry run flake8 call-stats
@@ -16,5 +16,5 @@ package-install:
 test:
 	poetry run pytest tests/
 
-.PHONY: install call-stats lint build package-install test
+.PHONY: install call_stats lint build package-install test
 
