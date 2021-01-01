@@ -5,7 +5,7 @@ call_stats:
 	poetry run call_stats
 
 lint:
-	poetry run flake8 call-stats
+	poetry run flake8 call_stats
 
 build:
 	poetry build
