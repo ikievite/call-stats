@@ -20,6 +20,14 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Call Stats')
     parser.add_argument('--newkey', required=False, help='Set new key', action='store_true')
     parser.add_argument('--newsecret', required=False, help='Set new secret', action='store_true')
+    parser.add_argument(
+        '--timestamp',
+        required=False,
+        help='Set date in ISO format, like "2020-12-12"',
+        action='store',
+        dest='timestamp',
+        default='today',
+    )
     arguments = parser.parse_args()
     return arguments
 
@@ -49,7 +57,7 @@ def main():  # noqa: WPS210
     key = keyring.get_password(service, token_key)
     secret = keyring.get_password(service, token_secret)
 
-    print(all_in_calls(key, secret))
+    print(all_in_calls(key, secret, args.timestamp))
 
 
 if __name__ == '__main__':
