@@ -5,10 +5,10 @@
 
 import argparse
 import getpass
-import datetime
-import requests  # noqa: I001
 
 import keyring
+
+from call_stats.stats.all_incoming_calls import all_in_calls
 
 
 def parse_arguments():
@@ -23,7 +23,7 @@ def parse_arguments():
     arguments = parser.parse_args()
     return arguments
 
-
+'''
 def all_in_calls_today(key, secret):
     url = 'https://api.binotel.com/api/4.0/stats/all-incoming-calls-since.json'
 
@@ -40,7 +40,7 @@ def all_in_calls_today(key, secret):
     if key and secret:
         output = requests.post(url, json=payload)
         return output.json()
-
+'''
 
 def main():  # noqa: WPS210
     """Run main func."""
@@ -67,7 +67,7 @@ def main():  # noqa: WPS210
     key = keyring.get_password(service, token_key)
     secret = keyring.get_password(service, token_secret)
 
-    print(all_in_calls_today(key, secret))
+    print(all_in_calls(key, secret))
 
 
 if __name__ == '__main__':
