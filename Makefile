@@ -1,8 +1,8 @@
 install:
 	poetry install
 
-call_stats:
-	poetry run call_stats
+call-stats:
+	poetry run call-stats
 
 lint:
 	poetry run flake8 call_stats
